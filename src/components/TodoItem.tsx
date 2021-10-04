@@ -38,18 +38,6 @@ const Label = styled.label`
     color: #777777;
 `;
 
-const Input = styled.input`
-    position: relative;
-
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-
-    opacity: 0;
-
-    z-index: 10;
-`;
-
 const InputCheckbox = styled.div`
     position: absolute;
 
@@ -66,7 +54,7 @@ const InputCheckbox = styled.div`
     z-index: 1;
 `;
 
-const InputCheck = styled.span<ICheck>`
+const InputCheck = styled.div<ICheck>`
     position: absolute;
 
     display: ${(props) => props.isActive ? 'block' : 'none'};
@@ -78,6 +66,22 @@ const InputCheck = styled.span<ICheck>`
     border-right: 2px solid #75c7e7;
 
     transform: rotate(45deg);
+`;
+
+const Input = styled.input`
+    position: relative;
+
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+
+    opacity: 0;
+
+    z-index: 10;
+
+    &:focus + ${InputCheckbox} {
+      border: 2px solid #75c7e7;
+    }
 `;
 
 const ButtonWrapper = styled.div`
@@ -108,11 +112,16 @@ const ButtonRemove = styled(Button)`
 
     &:hover {
         color: #e44a4a;
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 
     &:active {
         color: #c02424;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 2px 1px #59bce4;
     }
 `;
 
@@ -123,11 +132,16 @@ const ButtonEdit = styled(Button)`
 
     &:hover {
         color: #777676;
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 
     &:active {
         color: #4b4b4b;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 2px 1px #59bce4;
     }
 `;
 
@@ -161,10 +175,10 @@ const TodoItem: React.FC<{todo: ITodo}> = ({todo}) => {
             : (
             <>
                 <InputGroup>
+                    <Input type="checkbox" id={todo.name} checked={todo.complited} onChange={handleCheckbox(todo.id)} />
                     <InputCheckbox>
                             <InputCheck isActive={todo.complited}></InputCheck>
                     </InputCheckbox>
-                    <Input type="checkbox" id={todo.name} checked={todo.complited} onChange={handleCheckbox(todo.id)} />
                     <Label htmlFor={todo.name}>
                         {todo.complited ? <s>{todo.name}</s> : todo.name}
                     </Label>

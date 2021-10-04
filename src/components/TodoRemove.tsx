@@ -22,13 +22,17 @@ const ButtonGroup = styled.div`
 `;
 
 const Button = styled.button`
-    width: 30px;
-    height: 30px;
-    border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
 
-    background-color: transparent;
+  background-color: transparent;
 
-    cursor: pointer;
+  cursor: pointer;
 `;
 
 const ButtonConfirm = styled(Button)`
@@ -38,11 +42,16 @@ const ButtonConfirm = styled(Button)`
 
     &:hover {
         color: #e44a4a;
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 
     &:active {
         color: #c02424;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 2px 1px #59bce4;
     }
 `;
 
@@ -53,12 +62,17 @@ const ButtonCancel = styled(Button)`
     transition: transform 0.2s, color 0.2s;
 
     &:hover {
-        transform: scale(1.2);
+        transform: scale(1.1);
         color: #8a8a8a;
     }
 
     &:active {
         color: #4b4b4b;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 2px 1px #59bce4;
     }
 `;
 
