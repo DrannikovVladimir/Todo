@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import store from '../store';
 import TodoEditing from './TodoEditing';
-import IconRemove from '../icons/IconRemove';
-import IconEdit from '../icons/IconEdit';
+import IconRemove from './icons/IconRemove';
+import IconEdit from './icons/IconEdit';
 import TodoRemove from './TodoRemove';
 import ITodo from '../interfaces';
 

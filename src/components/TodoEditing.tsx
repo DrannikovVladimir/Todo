@@ -3,8 +3,8 @@ import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 
 import store from '../store';
-import IconConfirm from '../icons/IconConfirm';
-import IconCancel from '../icons/IconCancel';
+import IconConfirm from './icons/IconConfirm';
+import IconCancel from './icons/IconCancel';
 
 const Input = styled.input`
     width: 100%;

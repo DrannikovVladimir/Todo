@@ -2,8 +2,8 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 
-import IconConfirm from '../icons/IconConfirm';
-import IconCancel from '../icons/IconCancel';
+import IconConfirm from './icons/IconConfirm';
+import IconCancel from './icons/IconCancel';
 import store from '../store/index';
 
 const Text = styled.p`
