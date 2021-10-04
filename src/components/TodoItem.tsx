@@ -39,7 +39,7 @@ const Label = styled.label`
   color: ${colors.textColor};
 `;
 
-const InputCheckbox = styled.div`
+const InputCheckbox = styled.div<ICheck>`
   position: absolute;
 
   top: 18px;
@@ -49,6 +49,8 @@ const InputCheckbox = styled.div`
   margin-right: 10px;
   border: 1px solid #cccccc;
   border-radius: 3px;
+
+  background-color: ${props => props.isActive ? '#59bce4' : '#ffffff'};
 
   cursor: pointer;
 
@@ -63,8 +65,8 @@ const InputCheck = styled.div<ICheck>`
   width: 10px;
   height: 18px;
 
-  border-bottom: 2px solid #75c7e7;
-  border-right: 2px solid #75c7e7;
+  border-bottom: 2px solid ${colors.primeColor};
+  border-right: 2px solid ${colors.primeColor};
 
   transform: rotate(45deg);
 `;
@@ -81,7 +83,7 @@ const Input = styled.input`
   z-index: 10;
 
   &:focus + ${InputCheckbox} {
-    border: 2px solid #75c7e7;
+    box-shadow: 0 0 2px 1px ${colors.accentColor};
   }
 `;
 
@@ -107,40 +109,40 @@ const Button = styled.button`
 
 const ButtonRemove = styled(Button)`
   margin-left: 5px;
-  color: #eb9a9a;
+  color: ${colors.dangerColor};
 
   transition: color 0.2s;
 
   &:hover {
-    color: #e44a4a;
+    color: ${colors.dangerColorHover};
   }
 
   &:active {
-    color: #c02424;
+    color: ${colors.dangerColorActive};
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 2px 1px #59bce4;
+    box-shadow: 0 0 2px 1px ${colors.accentColor};
   }
 `;
 
 const ButtonEdit = styled(Button)`
-  color: #adadad;
+  color: ${colors.simpleColor};
 
   transition: color 0.2s;
 
   &:hover {
-    color: #777676;
+    color: ${colors.simpleColorHover};
   }
 
   &:active {
-    color: #4b4b4b;
+    color: ${colors.simpleColorActive};
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 2px 1px #59bce4;
+    box-shadow: 0 0 2px 1px ${colors.accentColor};
   }
 `;
 
@@ -175,7 +177,7 @@ const TodoItem: React.FC<{todo: ITodo}> = ({todo}) => {
         <>
           <InputGroup>
             <Input type="checkbox" id={todo.name} checked={todo.completed} onChange={handleCheckbox(todo.id)} />
-            <InputCheckbox>
+            <InputCheckbox isActive={todo.completed}>
               <InputCheck isActive={todo.completed}></InputCheck>
             </InputCheckbox>
             <Label htmlFor={todo.name}>

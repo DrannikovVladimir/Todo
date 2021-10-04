@@ -16,8 +16,8 @@ const List = styled.ul`
 `;
 
 const Feedback = styled.span`
-  font-size: 22px;
-  line-height: 32px;
+  font-size: 20px;
+  line-height: 30px;
   color: #c7c7c7;
 `;
 

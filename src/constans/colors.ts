@@ -1,4 +1,18 @@
-const colors = {
+interface IColors {
+  primeColor: string,
+  simpleColor: string,
+  simpleColorHover: string,
+  simpleColorActive: string,
+  accentColor: string,
+  accentColorHover: string,
+  accentColorActive: string,
+  textColor: string,
+  dangerColor: string,
+  dangerColorHover: string,
+  dangerColorActive: string,
+}
+
+const colors: IColors = {
   primeColor: '#ffffff',
   simpleColor: '#aaaaaa',
   simpleColorHover: '#8a8a8a',
