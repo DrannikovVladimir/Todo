@@ -39,8 +39,13 @@ const store: Store = makeAutoObservable({
         });
     },
     editedTodo: (name)=> {
-        const currentEl = store.todos.find((todo) => todo.id === store.currentTodo!.id);
-        currentEl!.name = name;
+        store.todos = store.todos.map((todo) => {
+          if (todo.id === store.currentTodo!.id) {
+            todo.name = name;
+            return todo;
+          }
+          return todo;
+        });
         store.status = 'working';
         store.currentTodo = null;
     },
