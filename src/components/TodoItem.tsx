@@ -108,11 +108,10 @@ const ButtonRemove = styled(Button)`
     margin-left: 5px;
     color: #eb9a9a;
 
-    transition: transform 0.2s, color 0.2s;
+    transition: color 0.2s;
 
     &:hover {
         color: #e44a4a;
-        transform: scale(1.1);
     }
 
     &:active {
@@ -128,11 +127,10 @@ const ButtonRemove = styled(Button)`
 const ButtonEdit = styled(Button)`
     color: #adadad;
 
-    transition: transform 0.2s, color 0.2s;
+    transition: color 0.2s;
 
     &:hover {
         color: #777676;
-        transform: scale(1.1);
     }
 
     &:active {

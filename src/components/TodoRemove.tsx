@@ -38,11 +38,10 @@ const Button = styled.button`
 const ButtonConfirm = styled(Button)`
     color: #eb9a9a;
 
-    transition: transform 0.2s, color 0.2s;
+    transition: color 0.2s;
 
     &:hover {
         color: #e44a4a;
-        transform: scale(1.1);
     }
 
     &:active {
@@ -59,10 +58,9 @@ const ButtonCancel = styled(Button)`
     margin-left: 5px;
     color: #aaaaaa;
 
-    transition: transform 0.2s, color 0.2s;
+    transition: color 0.2s;
 
     &:hover {
-        transform: scale(1.1);
         color: #8a8a8a;
     }
 
