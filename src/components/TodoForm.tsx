@@ -5,22 +5,29 @@ import styled from 'styled-components';
 import store from '../store';
 import ITodo from '../interfaces';
 
+interface IValid {
+  readonly isValid: boolean,
+};
+
 const FormWrapper = styled.div`
-    width: 100%;
-    margin-bottom: 40px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
 `;
 
 const InputGroup = styled.div`
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 `;
 
-const Input = styled.input`
+const Input = styled.input<IValid>`
     height: 50px;
     min-width: 300px;
     margin-right: 20px;
     padding: 10px;
-    border: 1px solid #e5e5e5;
+    border-width: 1px;
+    border-style: solid;
+    border-color: ${props => props.isValid ? '#e5e5e5' : '#e44a4a'};
     border-radius: 5px;
 
     font-size: 18px;
@@ -62,9 +69,22 @@ const Button = styled.button`
     }
 `;
 
+const Feedback = styled.span`
+  position: absolute;
+  left: 0;
+  bottom: -25px;
+
+  font-size: 14px;
+  line-height: 24px;
+  color: #e44a4a;
+`;
+
+const validation = (value: string) => (value.trim().length === 0);
+
 const TodoForm:React.FC = () => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [value, setValue] = useState<string>('');
+    const [valid, setValid] = useState<boolean>(true);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setValue(e.target.value);
@@ -72,6 +92,12 @@ const TodoForm:React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
+        const formValid = validation(value);
+        if (formValid) {
+          setValid(false);
+          return;
+        }
+        setValid(true);
         const newTodo: ITodo = {
             name: value,
             id: Date.now(),
@@ -80,6 +106,7 @@ const TodoForm:React.FC = () => {
         store.addTodo(newTodo);
         setValue('');
     }
+    console.log(valid);
 
     useEffect(() => {
         inputRef.current!.focus();
@@ -91,9 +118,17 @@ const TodoForm:React.FC = () => {
                 <InputGroup>
                     <label className="visually-hidden" htmlFor="todo">Enter Todo</label>
                     <Input
-                        ref={inputRef} type="text" id="todo" name="todo" value={value} onChange={handleChange} />
+                      ref={inputRef}
+                      type="text"
+                      id="todo"
+                      name="todo"
+                      value={value}
+                      onChange={handleChange}
+                      isValid={valid}
+                    />
                     <Button type="submit">Add todo</Button>
                 </InputGroup>
+                {!valid && <Feedback>Empty field</Feedback>}
             </form>
         </FormWrapper>
     )

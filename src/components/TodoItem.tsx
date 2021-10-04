@@ -151,7 +151,6 @@ const TodoItem: React.FC<{todo: ITodo}> = ({todo}) => {
   }
 
   const handleEdit = (todo: ITodo) => (): void => {
-    console.log('hi')
       openEditor(todo);
   }
 
