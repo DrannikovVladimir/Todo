@@ -8,21 +8,33 @@ import TodoItem from './TodoItem';
 
 
 const List = styled.ul`
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 
-    list-style: none;
+  list-style: none;
+`;
+
+const Feedback = styled.span`
+  font-size: 22px;
+  line-height: 32px;
+  color: #c7c7c7;
 `;
 
 const TodoList: React.FC = () => {
-    const todos = store.todos;
+  const todos = store.todos;
 
+  if (todos.length === 0) {
     return (
-        <List>
-            {todos.map((todo: ITodo) => <TodoItem key={todo.id} todo={todo} />)}
-        </List>
+      <Feedback>Todo List is empty!</Feedback>
     )
+  }
+
+  return (
+    <List>
+      {todos.map((todo: ITodo) => <TodoItem key={todo.id} todo={todo} />)}
+    </List>
+  )
 };
 
 export default observer(TodoList);
