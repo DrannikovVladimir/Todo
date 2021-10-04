@@ -5,29 +5,30 @@ import styled from 'styled-components';
 import store from '../store';
 import IconConfirm from './icons/IconConfirm';
 import IconCancel from './icons/IconCancel';
+import colors from '../constans/colors';
 
 const Input = styled.input`
-    width: 100%;
-    margin-right: 40px;
-    border: none;
-    border-bottom: 1px solid #e5e5e5;
+  width: 100%;
+  margin-right: 40px;
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
 
-    font-size: 18px;
-    line-height: 26px;
+  font-size: 18px;
+  line-height: 26px;
 
-    color: #777777;
+  color: ${colors.textColor};
 
-    &:focus, &:active {
-        outline: none;
+  &:focus, &:active {
+    outline: none;
 
-        border-color: #999999;
-    }
+    border-color: #b3b3b3;
+  }
 `;
 
 const ButtonGroup = styled.div`
-    display: flex;
-    align-items: center;
-    margin-left: auto;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 `;
 
 const Button = styled.button`
@@ -45,81 +46,81 @@ const Button = styled.button`
 `;
 
 const ButtonConfirm = styled(Button)`
-    color: #93cce2;
+  color: ${colors.accentColor};
 
-    transition: color 0.2s;
+  transition: color 0.2s;
 
-    &:hover {
-        color: #59bce4;
-    }
+  &:hover {
+    color: ${colors.accentColorHover};
+  }
 
-    &:active {
-        color: #1c95c5;
-    }
+  &:active {
+    color: ${colors.accentColorActive};
+  }
 
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 2px 1px #59bce4;
-    }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 2px 1px ${colors.accentColor};
+  }
 `;
 
 const ButtonCancel = styled(Button)`
-    margin-left: 5px;
-    color: #aaaaaa;
+  margin-left: 5px;
+  color: ${colors.simpleColor};
 
-    transition: color 0.2s;
+  transition: color 0.2s;
 
-    &:hover {
-        color: #8a8a8a;
-    }
+  &:hover {
+    color: ${colors.simpleColorHover};
+  }
 
-    &:active {
-        color: #4b4b4b;
-    }
+  &:active {
+    color: ${colors.simpleColorActive};
+  }
 
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 2px 1px #59bce4;
-    }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 2px 1px ${colors.accentColor};
+  }
 `;
 
 const TodoEditing:React.FC = () => {
-    const inputRef = useRef<HTMLInputElement>(null);
-    const editedTodo = store.editedTodo;
-    const cancelEdit = store.cancelEdit;
-    const currentTodo = store.currentTodo;
-    const [value, setValue] = useState<string>(currentTodo!.name);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const editedTodo = store.editedTodo;
+  const cancelEdit = store.cancelEdit;
+  const currentTodo = store.currentTodo;
+  const [value, setValue] = useState<string>(currentTodo!.name);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        setValue(e.target.value);
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setValue(e.target.value);
+  }
 
-    const handleConfirm = () => {
-        editedTodo(value);
-    }
+  const handleConfirm = () => {
+    editedTodo(value);
+  }
 
-    const handleCancel = () => {
-        cancelEdit();
-    }
+  const handleCancel = () => {
+    cancelEdit();
+  }
 
-    useEffect(() => {
-        inputRef.current!.select();
-    }, []);
+  useEffect(() => {
+    inputRef.current!.select();
+  }, []);
 
-    return (
-        <React.Fragment>
-            <label htmlFor="todoInput" className="visually-hidden">Todo name</label>
-            <Input ref={inputRef} type="text" id="todoInput" name="todoInput" value={value} onChange={handleChange} />
-            <ButtonGroup>
-                <ButtonConfirm type="button" onClick={handleConfirm}>
-                    <IconConfirm />
-                </ButtonConfirm>
-                <ButtonCancel type="button" onClick={handleCancel}>
-                    <IconCancel />
-                </ButtonCancel>
-            </ButtonGroup>
-        </React.Fragment>
-    )
+  return (
+    <React.Fragment>
+      <label htmlFor="todoInput" className="visually-hidden">Todo name</label>
+      <Input ref={inputRef} type="text" id="todoInput" name="todoInput" value={value} onChange={handleChange} />
+      <ButtonGroup>
+        <ButtonConfirm type="button" onClick={handleConfirm}>
+          <IconConfirm />
+        </ButtonConfirm>
+        <ButtonCancel type="button" onClick={handleCancel}>
+          <IconCancel />
+        </ButtonCancel>
+      </ButtonGroup>
+    </React.Fragment>
+  )
 };
 
 export default observer(TodoEditing);

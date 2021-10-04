@@ -5,20 +5,22 @@ import styled from 'styled-components';
 import IconConfirm from './icons/IconConfirm';
 import IconCancel from './icons/IconCancel';
 import store from '../store/index';
+import colors from '../constans/colors';
 
 const Text = styled.p`
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    font-size: 18px;
-    line-height: 26px;
+  font-size: 18px;
+  line-height: 26px;
 
-    color: #777777;`;
+  color: ${colors.textColor};
+`;
 
 const ButtonGroup = styled.div`
-    display: flex;
-    align-items: center;
-    margin-left: auto;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 `;
 
 const Button = styled.button`
@@ -36,69 +38,69 @@ const Button = styled.button`
 `;
 
 const ButtonConfirm = styled(Button)`
-    color: #eb9a9a;
+  color: ${colors.dangerColor};
 
-    transition: color 0.2s;
+  transition: color 0.2s;
 
-    &:hover {
-        color: #e44a4a;
-    }
+  &:hover {
+    color: ${colors.dangerColorHover};
+  }
 
-    &:active {
-        color: #c02424;
-    }
+  &:active {
+    color: ${colors.dangerColorActive};
+  }
 
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 2px 1px #59bce4;
-    }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 2px 1px ${colors.accentColor};
+  }
 `;
 
 const ButtonCancel = styled(Button)`
-    margin-left: 5px;
-    color: #aaaaaa;
+  margin-left: 5px;
+  color: ${colors.simpleColor};
 
-    transition: color 0.2s;
+  transition: color 0.2s;
 
-    &:hover {
-        color: #8a8a8a;
-    }
+  &:hover {
+    color: ${colors.simpleColorHover};
+  }
 
-    &:active {
-        color: #4b4b4b;
-    }
+  &:active {
+    color: ${colors.simpleColorActive};
+  }
 
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 2px 1px #59bce4;
-    }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 2px 1px ${colors.accentColor};
+  }
 `;
 
 const TodoRemove: React.FC = () => {
-    const removeTodo = store.removeTodo;
-    const cancelEdit = store.cancelEdit;
-    const currentTodo = store.currentTodo;
+  const removeTodo = store.removeTodo;
+  const cancelEdit = store.cancelEdit;
+  const currentTodo = store.currentTodo;
 
-    const handleConfirm = (id: number) => () => {
-        removeTodo(id);
-    }
+  const handleConfirm = (id: number) => () => {
+    removeTodo(id);
+  }
 
-    const handleCancel = () => {
-        cancelEdit();
-    }
-    return (
-        <React.Fragment>
-            <Text>Delete this todo?</Text>
-            <ButtonGroup>
-                <ButtonConfirm type="button" onClick={handleConfirm(currentTodo!.id)}>
-                    <IconConfirm />
-                </ButtonConfirm>
-                <ButtonCancel type="button" onClick={handleCancel}>
-                    <IconCancel />
-                </ButtonCancel>
-            </ButtonGroup>
-        </React.Fragment>
-    );
+  const handleCancel = () => {
+    cancelEdit();
+  }
+  return (
+    <React.Fragment>
+      <Text>Delete this todo?</Text>
+      <ButtonGroup>
+        <ButtonConfirm type="button" onClick={handleConfirm(currentTodo!.id)}>
+          <IconConfirm />
+        </ButtonConfirm>
+        <ButtonCancel type="button" onClick={handleCancel}>
+          <IconCancel />
+        </ButtonCancel>
+      </ButtonGroup>
+    </React.Fragment>
+  );
 };
 
 export default observer(TodoRemove);
