@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import store from '../store';
 import ITodo from '../interfaces';
+import colors from '../constans/colors';
 
 interface IValid {
   readonly isValid: boolean,
@@ -32,7 +33,7 @@ const Input = styled.input<IValid>`
 
   font-size: 18px;
   line-height: 28px;
-  color: #777777;
+  color: ${colors.textColor};
 
   &:focus {
     outline: none;
@@ -50,22 +51,22 @@ const Button = styled.button`
   text-transform: uppercase;
   font-size: 18px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: ${colors.primeColor};
 
-  background-color: #89cce7;
+  background-color: ${colors.accentColor};
   cursor: pointer;
 
   &:hover {
-    background-color: #41bbeb;
+    background-color: ${colors.accentColorHover};
   }
 
   &:active {
-    background-color: #1298ce;
+    background-color: ${colors.accentColorActive};
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 2px 1px #a6d6e9;
+    box-shadow: 0 0 2px 1px ${colors.accentColorHover};
   }
 `;
 
@@ -76,7 +77,7 @@ const Feedback = styled.span`
 
   font-size: 14px;
   line-height: 24px;
-  color: #e44a4a;
+  color: ${colors.dangerColor};
 `;
 
 const validation = (value: string) => (value.trim().length === 0);

@@ -33,6 +33,9 @@ const InputGroup = styled.div`
 `;
 
 const Label = styled.label`
+  width: 100%;
+  max-width: 305px;
+  overflow: hidden;
   font-size: 18px;
   line-height: 26px;
 
@@ -65,8 +68,8 @@ const InputCheck = styled.div<ICheck>`
   width: 10px;
   height: 18px;
 
-  border-bottom: 2px solid ${colors.primeColor};
-  border-right: 2px solid ${colors.primeColor};
+  border-bottom: 3px solid ${colors.primeColor};
+  border-right: 3px solid ${colors.primeColor};
 
   transform: rotate(45deg);
 `;
