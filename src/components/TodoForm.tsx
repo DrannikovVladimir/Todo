@@ -101,7 +101,7 @@ const TodoForm:React.FC = () => {
         const newTodo: ITodo = {
             name: value,
             id: Date.now(),
-            complited: false,
+            completed: false,
         }
         store.addTodo(newTodo);
         setValue('');

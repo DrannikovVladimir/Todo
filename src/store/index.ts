@@ -32,7 +32,7 @@ const store: Store = makeAutoObservable({
     doneTodo: (id) => {
         store.todos = store.todos.map((todo) => {
             if (todo.id === id) {
-                todo.complited = !todo.complited;
+                todo.completed = !todo.completed;
                 return todo;
             }
             return todo;

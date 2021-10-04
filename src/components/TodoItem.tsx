@@ -175,12 +175,12 @@ const TodoItem: React.FC<{todo: ITodo}> = ({todo}) => {
             : (
             <>
                 <InputGroup>
-                    <Input type="checkbox" id={todo.name} checked={todo.complited} onChange={handleCheckbox(todo.id)} />
+                    <Input type="checkbox" id={todo.name} checked={todo.completed} onChange={handleCheckbox(todo.id)} />
                     <InputCheckbox>
-                            <InputCheck isActive={todo.complited}></InputCheck>
+                            <InputCheck isActive={todo.completed}></InputCheck>
                     </InputCheckbox>
                     <Label htmlFor={todo.name}>
-                        {todo.complited ? <s>{todo.name}</s> : todo.name}
+                        {todo.completed ? <s>{todo.name}</s> : todo.name}
                     </Label>
                 </InputGroup>
                 <ButtonWrapper>
