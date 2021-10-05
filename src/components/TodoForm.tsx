@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import store from '../store';
 import ITodo from '../interfaces';
-import colors from '../constans/colors';
+import colors from '../constants/colors';
 
 interface IValid {
   readonly isValid: boolean,

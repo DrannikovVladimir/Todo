@@ -8,7 +8,7 @@ import IconRemove from './icons/IconRemove';
 import IconEdit from './icons/IconEdit';
 import TodoRemove from './TodoRemove';
 import ITodo from '../interfaces';
-import colors from '../constans/colors';
+import colors from '../constants/colors';
 
 interface ICheck {
   readonly isActive: boolean;
@@ -46,7 +46,7 @@ const InputCheckbox = styled.div<ICheck>`
   position: absolute;
 
   top: 18px;
-  left: 24px;
+  left: 20px;
   width: 25px;
   height: 25px;
   margin-right: 10px;

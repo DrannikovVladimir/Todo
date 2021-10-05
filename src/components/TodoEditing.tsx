@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import store from '../store';
 import IconConfirm from './icons/IconConfirm';
 import IconCancel from './icons/IconCancel';
-import colors from '../constans/colors';
+import colors from '../constants/colors';
 
 const Input = styled.input`
   width: 100%;

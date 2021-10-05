@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import IconConfirm from './icons/IconConfirm';
 import IconCancel from './icons/IconCancel';
 import store from '../store/index';
-import colors from '../constans/colors';
+import colors from '../constants/colors';
 
 const Text = styled.p`
   margin: 0;
