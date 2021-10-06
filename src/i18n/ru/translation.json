@@ -1,7 +1,8 @@
 {
   "title": "Список задач",
   "buttonAdd": "Добавить",
-  "emptyList": "Список задач пуст!",
+  "emptyListCompleted": "У вас нет завершённых задач!",
+  "emptyListUnCompleted": "У вас нет новых задач!",
   "placeholder": "Новая задача",
   "labelEdit": "Редактировать задачу",
   "labelAdd": "Добавить задачу",

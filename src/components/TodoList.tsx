@@ -41,7 +41,6 @@ const TodoList: React.FC = () => {
   const status = store.status;
   const todosNotCompleted = todos.filter((todo) => !todo.completed);
   const todosCompleted = todos.filter((todo) => todo.completed);
-  console.log(status);
 
   if ((status === 'initialization') && (todos.length === 0)) {
     return null;
