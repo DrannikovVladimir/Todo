@@ -155,7 +155,6 @@ const TodoItem: React.FC<{todo: ITodo}> = ({todo}) => {
   const openRemoveConfirm = store.openRemoveConfirm;
   const doneTodo = store.doneTodo;
   const openEditor = store.openEditor;
-  // const removeTodo = store.removeTodo;
 
   const handleRemove = (todo: ITodo) => ():void => {
     openRemoveConfirm(todo);
@@ -171,7 +170,7 @@ const TodoItem: React.FC<{todo: ITodo}> = ({todo}) => {
 
   return (
     <Item>
-      {(status !== 'working' && (todo.id === currentTodo!.id))
+      {(status !== 'working' && status !== 'initialization' && (todo.id === currentTodo!.id))
         ? (status === 'editing' ? <TodoEditing /> : <TodoRemove />)
         : (
         <>
