@@ -1,6 +1,8 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
+import '../i18n/config';
 
 import store from '../store';
 import ITodo from '../interfaces';
@@ -22,11 +24,12 @@ const Feedback = styled.span`
 `;
 
 const TodoList: React.FC = () => {
+  const { t } = useTranslation();
   const todos = store.todos;
 
   if (todos.length === 0) {
     return (
-      <Feedback>Todo List is empty!</Feedback>
+      <Feedback>{t('emptyList')}</Feedback>
     )
   }
 

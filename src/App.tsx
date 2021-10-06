@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
+import './i18n/config';
 
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import LangToggle from './components/LangToggle';
 import store from './store';
 import ITodo from './interfaces';
 
 const Container = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,6 +20,7 @@ const Container = styled.div`
   margin: 0 auto;
   margin-top: 50px;
   padding: 40px;
+
   box-shadow: 0 0 10px 1px #e5e5e5;
 `;
 
@@ -29,6 +35,7 @@ const Title = styled.h1`
 `;
 
 const App:React.FC = () => {
+  const { t } = useTranslation();
   const todos = store.todos;
   const initTodos = store.initTodos;
 
@@ -43,7 +50,8 @@ const App:React.FC = () => {
 
   return (
     <Container>
-      <Title>Todo List</Title>
+      <LangToggle />
+      <Title>{t('title')}</Title>
       <TodoForm />
       <TodoList />
     </Container>

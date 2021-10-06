@@ -1,6 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
+import '../i18n/config';
 
 import store from '../store';
 import IconConfirm from './icons/IconConfirm';
@@ -85,6 +87,7 @@ const ButtonCancel = styled(Button)`
 `;
 
 const TodoEditing:React.FC = () => {
+  const { t } = useTranslation()
   const inputRef = useRef<HTMLInputElement>(null);
   const editedTodo = store.editedTodo;
   const cancelEdit = store.cancelEdit;
@@ -109,8 +112,8 @@ const TodoEditing:React.FC = () => {
 
   return (
     <React.Fragment>
-      <label htmlFor="todoInput" className="visually-hidden">Todo name</label>
-      <Input ref={inputRef} type="text" id="todoInput" name="todoInput" value={value} onChange={handleChange} />
+      <label htmlFor="todoEditing" className="visually-hidden">{t('labelEdit')}</label>
+      <Input ref={inputRef} type="text" id="todoEditing" name="todoEditing" value={value} onChange={handleChange} />
       <ButtonGroup>
         <ButtonConfirm type="button" onClick={handleConfirm}>
           <IconConfirm />

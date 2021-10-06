@@ -1,6 +1,8 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
+import '../i18n/config';
 
 import IconConfirm from './icons/IconConfirm';
 import IconCancel from './icons/IconCancel';
@@ -77,6 +79,7 @@ const ButtonCancel = styled(Button)`
 `;
 
 const TodoRemove: React.FC = () => {
+  const { t } = useTranslation();
   const removeTodo = store.removeTodo;
   const cancelEdit = store.cancelEdit;
   const currentTodo = store.currentTodo;
@@ -90,7 +93,7 @@ const TodoRemove: React.FC = () => {
   }
   return (
     <React.Fragment>
-      <Text>Delete this todo?</Text>
+      <Text>{t('todoRemove')}</Text>
       <ButtonGroup>
         <ButtonConfirm type="button" onClick={handleConfirm(currentTodo!.id)}>
           <IconConfirm />

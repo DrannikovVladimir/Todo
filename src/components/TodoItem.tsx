@@ -53,7 +53,7 @@ const InputCheckbox = styled.div<ICheck>`
   border: 1px solid #cccccc;
   border-radius: 3px;
 
-  background-color: ${props => props.isActive ? '#59bce4' : '#ffffff'};
+  background-color: ${props => props.isActive ? colors.accentColor : colors.primeColor};
 
   cursor: pointer;
 

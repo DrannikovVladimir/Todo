@@ -1,6 +1,8 @@
 import React, {useState, useRef, useEffect} from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
+import '../i18n/config';
 
 import store from '../store';
 import ITodo from '../interfaces';
@@ -28,12 +30,20 @@ const Input = styled.input<IValid>`
   padding: 10px;
   border-width: 1px;
   border-style: solid;
-  border-color: ${props => props.isValid ? '#e5e5e5' : '#e44a4a'};
+  border-color: ${props => props.isValid ? '#e5e5e5' : colors.dangerColor};
   border-radius: 5px;
 
   font-size: 18px;
   line-height: 28px;
   color: ${colors.textColor};
+
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: ${colors.simpleColor};
+  }
+  :-ms-input-placeholder {
+     color: red;
+  }
 
   &:focus {
     outline: none;
@@ -83,6 +93,7 @@ const Feedback = styled.span`
 const validation = (value: string) => (value.trim().length === 0);
 
 const TodoForm:React.FC = () => {
+  const { t } = useTranslation();
   const inputRef = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState<string>('');
   const [valid, setValid] = useState<boolean>(true);
@@ -116,7 +127,7 @@ const TodoForm:React.FC = () => {
     <FormWrapper>
       <form style={{width: '100%'}} onSubmit={handleSubmit}>
         <InputGroup>
-          <label className="visually-hidden" htmlFor="todo">Enter Todo</label>
+          <label className="visually-hidden" htmlFor="todo">{t('labelAdd')}</label>
           <Input
             ref={inputRef}
             type="text"
@@ -125,10 +136,11 @@ const TodoForm:React.FC = () => {
             value={value}
             onChange={handleChange}
             isValid={valid}
+            placeholder={t('placeholder')}
           />
-          <Button type="submit">Add todo</Button>
+          <Button type="submit">{t('buttonAdd')}</Button>
         </InputGroup>
-        {!valid && <Feedback>Empty field</Feedback>}
+        {!valid && <Feedback>{t('emptyField')}</Feedback>}
       </form>
     </FormWrapper>
   )
