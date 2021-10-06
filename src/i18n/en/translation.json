@@ -1,7 +1,8 @@
 {
   "title": "Todo list",
   "buttonAdd": "Add",
-  "emptyList": "Todo list is empty!",
+  "emptyListCompleted": "List of completed tasks are empty!",
+  "emptyListUnCompleted": "List of new tasks are empty!",
   "placeholder": "New todo",
   "labelEdit": "Edit todo",
   "labelAdd": "Add todo",
