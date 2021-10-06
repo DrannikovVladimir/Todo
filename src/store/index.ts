@@ -16,18 +16,19 @@ type Store = {
 }
 
 const store: Store = makeAutoObservable({
-  status: 'working',
+  status: 'initialization',
   todos: [],
   currentTodo: null,
   initTodos: (todos) => {
     store.todos = todos;
   },
   addTodo: (todo: ITodo) => {
+    store.status = 'working';
     store.todos = [todo, ...store.todos];
   },
   removeTodo: (id) => {
     store.todos = store.todos.filter((todo) => todo.id !== id);
-    store.status = 'working';
+    store.status = 'initialization';
   },
   doneTodo: (id) => {
     store.todos = store.todos.map((todo) => {

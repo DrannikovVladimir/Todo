@@ -155,7 +155,7 @@ const TodoItem: React.FC<{todo: ITodo}> = ({todo}) => {
   const openRemoveConfirm = store.openRemoveConfirm;
   const doneTodo = store.doneTodo;
   const openEditor = store.openEditor;
-  const removeTodo = store.removeTodo;
+  // const removeTodo = store.removeTodo;
 
   const handleRemove = (todo: ITodo) => ():void => {
     openRemoveConfirm(todo);
@@ -163,9 +163,6 @@ const TodoItem: React.FC<{todo: ITodo}> = ({todo}) => {
 
   const handleCheckbox = (id: number) => () => {
     doneTodo(id);
-    setTimeout(() => {
-      removeTodo(id);
-    }, 1000);
   }
 
   const handleEdit = (todo: ITodo) => (): void => {
