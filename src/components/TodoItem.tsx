@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 
 import store from '../store';
-import TodoEditing from './TodoEditing';
+import TodoEditing from './TodoEdit';
 import IconRemove from './icons/IconRemove';
 import IconEdit from './icons/IconEdit';
 import TodoRemove from './TodoRemove';
