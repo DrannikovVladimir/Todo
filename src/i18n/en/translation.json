@@ -1,0 +1,10 @@
+{
+  "title": "Todo list",
+  "buttonAdd": "Add",
+  "emptyList": "Todo list is empty!",
+  "placeholder": "New todo",
+  "labelEdit": "Edit todo",
+  "labelAdd": "Add todo",
+  "todoRemove": "Remove this todo?",
+  "emptyField": "Empty field"
+}
