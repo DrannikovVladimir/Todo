@@ -49,7 +49,7 @@ const Button = styled.button<IActiveLang>`
 `;
 
 const LangToggle: React.FC = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const handleChangeLang = (newLang: string) => (): void => {
     i18n.changeLanguage(newLang);
   };
@@ -60,13 +60,15 @@ const LangToggle: React.FC = () => {
         onClick={handleChangeLang('en')}
         isActive={i18n.resolvedLanguage === 'en'}
       >
-        En
+        {t('buttonEn')}
+        <span className="visually-hidden">{t('buttonEnLabel')}</span>
       </Button>
       <Button
         onClick={handleChangeLang('ru')}
         isActive={i18n.resolvedLanguage === 'ru'}
       >
-        Ru
+        {t('buttonRu')}
+        <span className="visually-hidden">{t('buttonRuLabel')}</span>
       </Button>
     </ButtonsWrapper>
   );

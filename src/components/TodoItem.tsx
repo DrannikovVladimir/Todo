@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 import store from '../store';
 import TodoEditing from './TodoEdit';
@@ -150,6 +151,7 @@ const ButtonEdit = styled(Button)`
 `;
 
 const TodoItem: React.FC<{todo: ITodo}> = ({todo}) => {
+  const { t } = useTranslation();
   const status = store.status;
   const currentTodo = store.currentTodo;
   const openRemoveConfirm = store.openRemoveConfirm;
@@ -186,9 +188,11 @@ const TodoItem: React.FC<{todo: ITodo}> = ({todo}) => {
           <ButtonWrapper>
             <ButtonEdit type="button" onClick={handleEdit(todo)}>
               <IconEdit />
+              <span className="visually-hidden">{t('buttonEditLabel')}</span>
             </ButtonEdit>
             <ButtonRemove type="button" onClick={handleRemove(todo)}>
               <IconRemove />
+              <span className="visually-hidden">{t('buttonCancelLabel')}</span>
             </ButtonRemove>
           </ButtonWrapper>
         </>

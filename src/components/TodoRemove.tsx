@@ -97,9 +97,11 @@ const TodoRemove: React.FC = () => {
       <ButtonGroup>
         <ButtonConfirm type="button" onClick={handleConfirm(currentTodo!.id)}>
           <IconConfirm />
+          <span className="visually-hidden">{t('buttonReoveLabel')}</span>
         </ButtonConfirm>
         <ButtonCancel type="button" onClick={handleCancel}>
           <IconCancel />
+          <span className="visually-hidden">{t('buttonCancelLabel')}</span>
         </ButtonCancel>
       </ButtonGroup>
     </React.Fragment>

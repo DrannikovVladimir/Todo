@@ -30,7 +30,7 @@ const Input = styled.input<IValid>`
   padding: 10px;
   border-width: 1px;
   border-style: solid;
-  border-color: ${props => props.isValid ? '#e5e5e5' : colors.dangerColor};
+  border-color: ${props => props.isValid ? '#e5e5e5' : colors.dangerColorHover};
   border-radius: 5px;
 
   font-size: 18px;
@@ -42,7 +42,7 @@ const Input = styled.input<IValid>`
     color: ${colors.simpleColor};
   }
   :-ms-input-placeholder {
-     color: red;
+     color: ${colors.simpleColor};
   }
 
   &:focus {
@@ -87,7 +87,7 @@ const Feedback = styled.span`
 
   font-size: 14px;
   line-height: 24px;
-  color: ${colors.dangerColor};
+  color: ${colors.dangerColorHover};
 `;
 
 const validation = (value: string) => (value.trim().length === 0);

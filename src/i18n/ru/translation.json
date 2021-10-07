@@ -7,5 +7,13 @@
   "labelEdit": "Редактировать задачу",
   "labelAdd": "Добавить задачу",
   "todoRemove": "Удалить эту задачу?",
-  "emptyField": "Пустое поле"
+  "emptyField": "Пустое поле",
+  "buttonEn": "Ru",
+  "buttonEnLabel": "Русский язык",
+  "buttonRu": "En",
+  "buttonRuLabel": "Английский язык",
+  "buttonEditLabel": "Редактировать",
+  "buttonCancelLabel": "Отменить",
+  "buttonRemoveLabel": "Удалить",
+  "buttonOkLabel": "Да"
 }

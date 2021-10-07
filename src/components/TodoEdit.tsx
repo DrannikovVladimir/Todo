@@ -113,13 +113,22 @@ const TodoEditing:React.FC = () => {
   return (
     <React.Fragment>
       <label htmlFor="todoEditing" className="visually-hidden">{t('labelEdit')}</label>
-      <Input ref={inputRef} type="text" id="todoEditing" name="todoEditing" value={value} onChange={handleChange} />
+      <Input
+        ref={inputRef}
+        type="text"
+        id="todoEditing"
+        name="todoEditing"
+        value={value}
+        onChange={handleChange}
+      />
       <ButtonGroup>
         <ButtonConfirm type="button" onClick={handleConfirm}>
           <IconConfirm />
+          <span className="visually-hidden">{t('buttonOkLabel')}</span>
         </ButtonConfirm>
         <ButtonCancel type="button" onClick={handleCancel}>
           <IconCancel />
+          <span className="visually-hidden">{t('buttonCancelLabel')}</span>
         </ButtonCancel>
       </ButtonGroup>
     </React.Fragment>
