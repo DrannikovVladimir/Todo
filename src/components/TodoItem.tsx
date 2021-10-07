@@ -2,6 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import '../i18n/config';
 
 import store from '../store';
 import TodoEditing from './TodoEdit';
